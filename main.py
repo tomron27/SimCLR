@@ -89,12 +89,12 @@ def test(net, memory_data_loader, test_data_loader):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Train SimCLR')
-    parser.add_argument('--feature_dim', default=128, type=int, help='Feature dim for latent vector')
-    parser.add_argument('--temperature', default=0.5, type=float, help='Temperature used in softmax')
-    parser.add_argument('--k', default=200, type=int, help='Top k most similar images used to predict the label')
-    parser.add_argument('--batch_size', default=512, type=int, help='Number of images in each mini-batch')
-    parser.add_argument('--epochs', default=500, type=int, help='Number of sweeps over the dataset to train')
+    # parser = argparse.ArgumentParser(description='Train SimCLR')
+    # parser.add_argument('--feature_dim', default=128, type=int, help='Feature dim for latent vector')
+    # parser.add_argument('--temperature', default=0.5, type=float, help='Temperature used in softmax')
+    # parser.add_argument('--k', default=200, type=int, help='Top k most similar images used to predict the label')
+    # parser.add_argument('--batch_size', default=512, type=int, help='Number of images in each mini-batch')
+    # parser.add_argument('--epochs', default=500, type=int, help='Number of sweeps over the dataset to train')
 
     # args parse
     args = parser.parse_args()
