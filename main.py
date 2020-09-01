@@ -1,4 +1,3 @@
-import argparse
 import os
 
 import pandas as pd
@@ -11,6 +10,7 @@ from tqdm import tqdm
 import utils
 from model import Model
 
+from config import SimCLR_TrainConfig
 
 # train for one epoch to learn unique features
 def train(net, data_loader, train_optimizer):
@@ -89,17 +89,10 @@ def test(net, memory_data_loader, test_data_loader):
 
 
 if __name__ == '__main__':
-    # parser = argparse.ArgumentParser(description='Train SimCLR')
-    # parser.add_argument('--feature_dim', default=128, type=int, help='Feature dim for latent vector')
-    # parser.add_argument('--temperature', default=0.5, type=float, help='Temperature used in softmax')
-    # parser.add_argument('--k', default=200, type=int, help='Top k most similar images used to predict the label')
-    # parser.add_argument('--batch_size', default=512, type=int, help='Number of images in each mini-batch')
-    # parser.add_argument('--epochs', default=500, type=int, help='Number of sweeps over the dataset to train')
 
-    # args parse
-    args = parser.parse_args()
-    feature_dim, temperature, k = args.feature_dim, args.temperature, args.k
-    batch_size, epochs = args.batch_size, args.epochs
+    config = SimCLR_TrainConfig()
+    feature_dim, temperature, k = config.feature_dim, config.temperature, config.k
+    batch_size, epochs = config.batch_size, config.epochs
 
     # data prepare
     train_data = utils.CIFAR10Pair(root='data', train=True, transform=utils.train_transform, download=True)
